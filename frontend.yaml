@@ -4,8 +4,8 @@
   tasks:
     - name: Install NGiNX
       ansible.builtin.yum:
-        - name: nginx
-          state: installed
+        name: nginx
+        state: installed
 
     - name: Remove default content
       ansible.builtin.file:
