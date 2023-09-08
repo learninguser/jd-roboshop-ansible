@@ -1,0 +1,26 @@
+- name: MongoDB component
+  hosts: mongodb
+  become: yes
+  tasks:
+    - name: Copy Mongo Repo
+      ansible.builtin.copy:
+        src: ./files/mongo.repo
+        dest: /etc/yum.repos.d/mongo.repo
+
+    - name: Install MongoDB
+      ansible.builtin.yum:
+        name: mongodb-org
+        state: installed
+    
+    - name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+      ansible.builtin.replace:
+        path: /etc/mongod.conf
+        regexp: '127.0.0.1'
+        replace: '0.0.0.0'
+    
+    - name: Restart NGiNX
+      ansible.builtin.systemd:
+        name: nginx
+        state: restarted
+        enabled: true
+        daemon_reload: true

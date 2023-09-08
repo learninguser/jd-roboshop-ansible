@@ -1,2 +1,5 @@
 [frontend]
 frontend-dev.learninguser.online
+
+[mongodb]
+mongodb-dev.learninguser.online
