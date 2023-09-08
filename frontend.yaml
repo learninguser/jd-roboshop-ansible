@@ -17,13 +17,13 @@
         path: /usr/share/nginx/html
         state: directory
 
-    - name: Unarchive a file that needs to be downloaded (added in 2.0)
+    - name: Unarchive frontend artifact
       ansible.builtin.unarchive:
         src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip 
         dest: /usr/share/nginx/html
         remote_src: yes
     
-    - name: Copy file with owner and permissions
+    - name: Copy roboshop.conf file
       ansible.builtin.copy:
         src: ./files/roboshop.conf
         dest: /etc/nginx/default.d/roboshop.conf
@@ -32,4 +32,5 @@
       ansible.builtin.systemd:
         name: nginx
         state: restarted
+        enabled: true
         daemon_reload: true
