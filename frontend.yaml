@@ -2,29 +2,29 @@
   hosts: frontend
   become: yes
   tasks:
-  - name: Install NGiNX
-    ansible.builtin.yum:
-      - name: ngnix
-        state: installed
+    - name: Install NGiNX
+      ansible.builtin.yum:
+        - name: nginx
+          state: installed
 
-  - name: Remove default content
-    ansible.builtin.file:
-      path: /usr/share/nginx/html
-      state: absent
-  
-  - name: Unarchive a file that needs to be downloaded (added in 2.0)
-    ansible.builtin.unarchive:
-      src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip 
-      dest: /usr/share/nginx/html
-      remote_src: yes
-  
-  - name: Copy file with owner and permissions
-    ansible.builtin.copy:
-      src: ./files/roboshop.conf
-      dest: /etc/nginx/default.d/roboshop.conf
-  
-  - name: Restart NGiNX
-    ansible.builtin.systemd:
-      name: nginx
-      state: restarted
-      daemon_reload: true
+    - name: Remove default content
+      ansible.builtin.file:
+        path: /usr/share/nginx/html
+        state: absent
+    
+    - name: Unarchive a file that needs to be downloaded (added in 2.0)
+      ansible.builtin.unarchive:
+        src: https://roboshop-artifacts.s3.amazonaws.com/frontend.zip 
+        dest: /usr/share/nginx/html
+        remote_src: yes
+    
+    - name: Copy file with owner and permissions
+      ansible.builtin.copy:
+        src: ./files/roboshop.conf
+        dest: /etc/nginx/default.d/roboshop.conf
+    
+    - name: Restart NGiNX
+      ansible.builtin.systemd:
+        name: nginx
+        state: restarted
+        daemon_reload: true
