@@ -3,7 +3,7 @@
   become: yes
   tasks:
     - name: Disable MySQL 8 version
-      ansible.builtin.shell: "dnf module disable mysql"
+      ansible.builtin.shell: "dnf module disable mysql -y"
     
     - name: Copy mysql repo file
       ansible.builtin.copy:
