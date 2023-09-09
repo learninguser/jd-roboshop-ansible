@@ -6,3 +6,6 @@ mongodb-dev.learninguser.online
 
 [catalogue]
 catalogue-dev.learninguser.online
+
+[redis]
+redis-dev.learninguser.online
