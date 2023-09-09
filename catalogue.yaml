@@ -20,6 +20,11 @@
         name: roboshop
       when: out.rc != 0
     
+    - name: Remove /app directory if present
+      ansible.builtin.file:
+        path: /app
+        state: absent
+
     - name: create /app directory
       ansible.bultin.file:
         path: /app
