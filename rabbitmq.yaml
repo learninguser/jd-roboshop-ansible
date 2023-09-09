@@ -13,6 +13,13 @@
         name: rabbitmq-server
         state: installed
     
+    - name: Restart Rabbitmq
+      ansible.builtin.systemd:
+        name: rabbitmq-server
+        state: restarted
+        enabled: true
+        daemon_reload: true
+
     - name: Add a Roboshop user
       community.rabbitmq.rabbitmq_user:
         user: roboshop
