@@ -21,3 +21,6 @@ mysql-dev.learninguser.online
 
 [shipping]
 shipping-dev.learninguser.online
+
+[rabbitmq]
+rabbitmq-dev.learninguser.online
