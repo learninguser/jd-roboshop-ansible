@@ -3,3 +3,6 @@ frontend-dev.learninguser.online
 
 [mongodb]
 mongodb-dev.learninguser.online
+
+[catalogue]
+catalogue-dev.learninguser.online
