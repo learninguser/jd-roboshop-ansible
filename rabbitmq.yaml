@@ -14,12 +14,12 @@
         state: installed
     
    - name: Add a Roboshop user
-    community.rabbitmq.rabbitmq_user:
-      user: roboshop
-      password: roboshop123
-      tags: administrator
-      vhost: /
-      configure_priv: .*
-      read_priv: .*
-      write_priv: .*
-      state: present
+      community.rabbitmq.rabbitmq_user:
+        user: roboshop
+        password: roboshop123
+        tags: administrator
+        vhost: /
+        configure_priv: .*
+        read_priv: .*
+        write_priv: .*
+        state: present
