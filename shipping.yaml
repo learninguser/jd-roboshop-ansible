@@ -1,5 +1,5 @@
-- name: MySQL component
-  hosts: mysql
+- name: Shipping component
+  hosts: shipping
   become: yes
   tasks:
     - name: Install Maven
