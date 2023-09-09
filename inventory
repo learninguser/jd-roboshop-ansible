@@ -18,3 +18,6 @@ cart-dev.learninguser.online
 
 [mysql]
 mysql-dev.learninguser.online
+
+[shipping]
+shipping-dev.learninguser.online
