@@ -24,3 +24,6 @@ shipping-dev.learninguser.online
 
 [rabbitmq]
 rabbitmq-dev.learninguser.online
+
+[payment]
+payment-dev.learninguser.online
