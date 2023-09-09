@@ -7,6 +7,11 @@
         name: golang
         state: installed
     
+    - name: Check if roboshop user exists
+      ansible.builtin.shell: id roboshop
+      register: out
+      ignore_errors: true
+    
     - name: Add roboshop user
       ansible.builtin.user:
         name: roboshop
