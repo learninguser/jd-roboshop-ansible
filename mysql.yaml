@@ -1,0 +1,32 @@
+- name: MySQL component
+  hosts: mysql
+  become: yes
+  tasks:
+    - name: Disable MySQL 8 version
+      ansible.builtin.shell: "dnf module disable mysql"
+    
+    - name: Copy mysql repo file
+      ansible.builtin.copy:
+        src: ./files/mysql.repo
+        dest: /etc/yum.repos.d/mysql.repo
+    
+    - name: Install MySQL
+      ansible.builtin.yum:
+        name: mysql-community-server
+        state: installed
+    
+    - name: Restart MySQL
+      ansible.builtin.systemd:
+        name: mysqld
+        state: restarted
+        enabled: true
+    
+    - name: Changing default MySQL Root password
+      ansible.builtin.shell: mysql_secure_installation --set-root-pass Roboshop@1
+      ignore_errors: yes
+      register: out
+
+    - name: Password Status
+      ansible.builtin.debug:
+        msg: Password is already Changed!!
+      when: out.rc == 1

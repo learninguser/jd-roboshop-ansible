@@ -15,3 +15,6 @@ user-dev.learninguser.online
 
 [cart]
 cart-dev.learninguser.online
+
+[mysql]
+mysql-dev.learninguser.online
