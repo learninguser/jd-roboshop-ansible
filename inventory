@@ -27,3 +27,6 @@ rabbitmq-dev.learninguser.online
 
 [payment]
 payment-dev.learninguser.online
+
+[dispatch]
+dispatch-dev.learninguser.online
