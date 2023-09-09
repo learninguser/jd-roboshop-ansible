@@ -13,7 +13,7 @@
         name: rabbitmq-server
         state: installed
     
-   - name: Add a Roboshop user
+    - name: Add a Roboshop user
       community.rabbitmq.rabbitmq_user:
         user: roboshop
         password: roboshop123
