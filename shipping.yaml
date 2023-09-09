@@ -54,7 +54,7 @@
         state: installed
     
     - name: load mysql schema
-      ansible.builtin.shell: mysql -h mysql.joindevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql
+      ansible.builtin.shell: mysql -h mysql-dev.joindevops.online -uroot -pRoboShop@1 < /app/schema/shipping.sql
     
     - name: Restart shipping
       ansible.builtin.systemd:
