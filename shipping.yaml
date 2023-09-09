@@ -48,6 +48,10 @@
         src: ./files/shipping.service
         dest: /etc/systemd/system/shipping.service
     
+    - name: deamon reload
+      ansible.builtin.systemd:
+        daemon_reload: true
+    
     - name: Install MySQL client
       ansible.builtin.yum:
         name: mysql
@@ -61,4 +65,3 @@
         name: shipping
         state: restarted
         enabled: true
-        daemon_reload: true
