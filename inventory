@@ -12,3 +12,6 @@ redis-dev.learninguser.online
 
 [user]
 user-dev.learninguser.online
+
+[cart]
+cart-dev.learninguser.online
